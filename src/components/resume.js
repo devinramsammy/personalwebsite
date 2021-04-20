@@ -1,37 +1,44 @@
 import React from "react";
-import { Grid, Paper } from "@material-ui/core";
-import "react-typist/dist/Typist.css";
 import ParticlesBg from "particles-bg";
-import resume from "../assets/resume.jpg";
+import resume from "../assets/resume.png";
 import resumePDF from "../assets/Resume.pdf";
 import { Fade } from "react-reveal";
+import { makeStyles, useTheme } from "@material-ui/core/styles";
+import Container from "@material-ui/core/Container";
+
+const useStyles = makeStyles((theme) => ({
+  appBarSpacer: theme.mixins.toolbar,
+  content: {
+    flexGrow: 1,
+    height: "calc(100vh - 120px)",
+  },
+  container: {
+    paddingTop: theme.spacing(4),
+    paddingBottom: theme.spacing(4),
+  },
+}));
 
 function Resume() {
+  const classes = useStyles();
+  const theme = useTheme();
+
   return (
-    <div styles={{ maxHeight: "100vh" }}>
-      <ParticlesBg type="cobweb" bg={true} />
-      <Fade>
-        <Grid
-          container
-          spacing={3}
-          justify="center"
-          alignItems="center"
-          direction="column"
-        >
-          <Grid item>
-            <Paper>
-              <a href={resumePDF} download>
-                <img
-                  className="resume"
-                  src={resume}
-                  alt="Devin Ramsammy's Resume"
-                ></img>
-              </a>
-            </Paper>
-          </Grid>
-        </Grid>
-      </Fade>
-    </div>
+    <main className={classes.content}>
+      <div className={classes.appBarSpacer} />
+      <Container maxWidth="xl" className={classes.container}>
+        <ParticlesBg type="cobweb" bg={true} num={75} />
+        <Fade>
+          <a href={resumePDF} download>
+            <img
+              className="resume"
+              src={resume}
+              alt="Devin Ramsammy's Resume"
+              style={{ maxHeight: "80vh" }}
+            ></img>
+          </a>
+        </Fade>
+      </Container>
+    </main>
   );
 }
 

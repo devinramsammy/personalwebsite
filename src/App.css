@@ -1,14 +1,11 @@
 .App {
   text-align: center;
-  position: absolute;
   left: 0;
   right: 0;
-  margin: auto 1.5%;
-  padding-top: 90px;
-  height: calc(100vh - 146px);
+  display: flex;
 }
 .header {
-  font-size: 30vw;
+  font-size: calc((75vw - 4.5rem) / 3);
   font-family: "Rajdhani";
   font-weight: 800;
 }
@@ -21,12 +18,12 @@
   margin: auto !important;
 }
 .card {
-  width: 67.5vw;
+  width: 75vw;
   height: auto;
 }
 .about-me-text {
   text-align: center;
-  font-size: 18pt;
+  font-size: calc((100% + 0.8vw));
   font-family: "Rajdhani";
   font-weight: 800;
 }

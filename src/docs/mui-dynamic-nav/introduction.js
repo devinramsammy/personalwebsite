@@ -26,13 +26,13 @@ class App extends Component {
 
 export default function DynamicNavIntroduction() {
   return (
-    <Fade bottom>
+    <Fade>
       <Paper>
         <div
           style={{
             fontFamily: "Rajdhani",
             fontWeight: "800",
-            paddingTop: "1px"
+            paddingTop: "1px",
           }}
         >
           <h1>Mui Dynamic Nav Documentation</h1>

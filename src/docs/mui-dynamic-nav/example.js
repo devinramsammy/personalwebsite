@@ -111,13 +111,13 @@ return (
 
 export default function DynamicNavExample() {
   return (
-    <Fade bottom>
+    <Fade>
       <Paper>
         <div
           style={{
             fontFamily: "Rajdhani",
             fontWeight: "800",
-            paddingTop: "1px"
+            paddingTop: "1px",
           }}
         >
           <h1>Mui Dynamic Nav Examples</h1>

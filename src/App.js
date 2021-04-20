@@ -4,8 +4,8 @@ import Homepage from "./components/homepage";
 import AboutMe from "./components/about-me";
 import Resume from "./components/resume";
 import MuiDynamicNav from "./docs/mui-dynamic-nav/container";
+import DatabaseAnalytics from "./docs/police-shooting-database-analytics/container";
 import { createMuiTheme, ThemeProvider } from "@material-ui/core/styles";
-import { StyledProvider, BackToTop } from "components-extra";
 import DynamicNavbar from "mui-dynamic-nav";
 
 import "./App.css";
@@ -15,25 +15,25 @@ const navTheme = createMuiTheme({
   palette: {
     primary: {
       main: "#ffffff",
-      contrastText: "#838383"
+      contrastText: "#838383",
     },
     secondary: {
-      main: "#ffffff"
+      main: "#ffffff",
     },
     background: {
-      paper: "#ffffff"
+      paper: "#ffffff",
     },
     text: {
-      primary: "#838383"
-    }
+      primary: "#838383",
+    },
   },
   overrides: {
     MuiIcon: {
       colorPrimary: {
-        color: "#838383"
-      }
-    }
-  }
+        color: "#838383",
+      },
+    },
+  },
 });
 
 const docsTheme = createMuiTheme({
@@ -44,18 +44,18 @@ const docsTheme = createMuiTheme({
           backgroundColor: "darkgray",
           color: "white",
           "&:hover": {
-            backgroundColor: "gray"
-          }
-        }
+            backgroundColor: "gray",
+          },
+        },
       },
       button: {
         "&:hover": {
           backgroundColor: "gray",
-          color: "white"
-        }
-      }
-    }
-  }
+          color: "white",
+        },
+      },
+    },
+  },
 });
 
 const navbarData = [
@@ -69,17 +69,21 @@ const navbarData = [
       {
         title: "Dynamic Navbar",
         href: "/mui-dynamic-nav",
-        icon: "map"
-      }
-    ]
-  }
+        icon: "map",
+      },
+      {
+        title: "Police Shootings Database Analytics",
+        href: "/police-shootings-analytics",
+        icon: "bar_chart",
+      },
+    ],
+  },
 ];
 
 class App extends Component {
   render() {
     return (
-      <StyledProvider>
-        <BackToTop size="small" />
+      <div className="App">
         <ThemeProvider>
           <Router>
             <ThemeProvider theme={navTheme}>
@@ -89,23 +93,27 @@ class App extends Component {
                 type="hoverable"
               ></DynamicNavbar>
             </ThemeProvider>
-            <div className="App">
-              <Switch>
-                <Route exact path="/" component={Homepage} />
-                <Route exact path="/about-me" component={AboutMe} />
-                <Route exact path="/resume" component={Resume} />
-                <ThemeProvider theme={docsTheme}>
-                  <Route
-                    exact
-                    path="/mui-dynamic-nav"
-                    component={MuiDynamicNav}
-                  />
-                </ThemeProvider>
-              </Switch>
-            </div>
+
+            <Switch>
+              <Route exact path="/" component={Homepage} />
+              <Route exact path="/about-me" component={AboutMe} />
+              <Route exact path="/resume" component={Resume} />
+              <ThemeProvider theme={docsTheme}>
+                <Route
+                  exact
+                  path="/mui-dynamic-nav"
+                  component={MuiDynamicNav}
+                />
+                <Route
+                  exact
+                  path="/police-shootings-analytics"
+                  component={DatabaseAnalytics}
+                />
+              </ThemeProvider>
+            </Switch>
           </Router>
         </ThemeProvider>
-      </StyledProvider>
+      </div>
     );
   }
 }

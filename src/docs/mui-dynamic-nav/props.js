@@ -84,13 +84,13 @@ const additionalButtonsConfig = [{
 
 export default function DynamicNavProps() {
   return (
-    <Fade bottom>
+    <Fade>
       <Paper>
         <div
           style={{
             fontFamily: "Rajdhani",
             fontWeight: "800",
-            paddingTop: "1px"
+            paddingTop: "1px",
           }}
         >
           <h1>Mui Dynamic Nav Props</h1>

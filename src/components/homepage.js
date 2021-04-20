@@ -1,12 +1,28 @@
 import React from "react";
 import { Zoom } from "react-reveal";
-import { Grid } from "@material-ui/core";
-
 import "react-typist/dist/Typist.css";
 import ParticlesBg from "particles-bg";
 import Typist from "react-typist";
+import { makeStyles, useTheme } from "@material-ui/core/styles";
+import Container from "@material-ui/core/Container";
+
+const useStyles = makeStyles((theme) => ({
+  appBarSpacer: theme.mixins.toolbar,
+  content: {
+    flexGrow: 1,
+    height: "calc(100vh - 90px)",
+    overflow: "auto",
+  },
+  container: {
+    paddingTop: theme.spacing(4),
+    paddingBottom: theme.spacing(4),
+  },
+}));
 
 function Homepage() {
+  const classes = useStyles();
+  const theme = useTheme();
+
   function heading(first, second) {
     return (
       <h1>
@@ -26,20 +42,11 @@ function Homepage() {
   }
 
   return (
-    <div
-      style={{
-        height: "90vh"
-      }}
-    >
-      <Grid
-        container
-        direction="column"
-        justify="space-evenly"
-        alignItems="center"
-      >
-        <ParticlesBg type="cobweb" num={75} bg={true} />
-
-        <Grid item className="test">
+    <>
+      <main className={classes.content}>
+        <div className={classes.appBarSpacer} />
+        <Container maxWidth="xl" className={classes.container}>
+          <ParticlesBg type="cobweb" num={45} bg={true} />
           <Typist
             startDelay={500}
             avgTypingDelay={150}
@@ -48,15 +55,10 @@ function Homepage() {
           >
             HELLO!
           </Typist>
-        </Grid>
-
-        <Grid item>
-          <div className="subtitle">
-            {heading("My name is Devin", "and I code and stuff")}
-          </div>
-        </Grid>
-      </Grid>
-    </div>
+          <div>{heading("My name is Devin", "and I code and stuff")}</div>
+        </Container>
+      </main>
+    </>
   );
 }
 
