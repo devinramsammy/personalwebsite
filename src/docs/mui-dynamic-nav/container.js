@@ -6,8 +6,9 @@ import DynamicNavExample from "./example";
 import DynamicNavProps from "./props";
 import Fade from "react-reveal/Fade";
 import ParticlesBg from "particles-bg";
-import { makeStyles, useTheme } from "@material-ui/core/styles";
+import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
+import { Helmet } from "react-helmet";
 
 const useStyles = makeStyles((theme) => ({
   appBarSpacer: theme.mixins.toolbar,
@@ -36,109 +37,20 @@ export default function DynamicNavContainer() {
     },
   ];
   const classes = useStyles();
-  const theme = useTheme();
 
   switch (location) {
     case "Introduction":
       return (
-        <main className={classes.content}>
-          <div className={classes.appBarSpacer} />
-          <Container maxWidth="xl" className={classes.container}>
-            <ParticlesBg type="cobweb" bg={true} num={75} />
+        <>
+          <Helmet>
+            <title>Mui Dynamic Nav Documentation</title>
+            <meta name="description" content="Mui Dynamic Nav Documentation" />
+          </Helmet>
+          <main className={classes.content}>
+            <div className={classes.appBarSpacer} />
+            <Container maxWidth="xl" className={classes.container}>
+              <ParticlesBg type="cobweb" bg={true} num={75} />
 
-            <Grid
-              container
-              spacing={3}
-              direction="row"
-              justify="center"
-              alignItems="flex-start"
-            >
-              <Grid item xs={12} md={2}>
-                <Fade>
-                  <Sidebar
-                    listItems={navSidebar}
-                    setLocation={setLocation}
-                    location={location}
-                  ></Sidebar>
-                </Fade>
-              </Grid>
-              <Grid item xs={12} md={7}>
-                <DynamicNavIntroduction></DynamicNavIntroduction>
-              </Grid>
-            </Grid>
-          </Container>
-        </main>
-      );
-
-    case "Example":
-      return (
-        <main className={classes.content}>
-          <div className={classes.appBarSpacer} />
-          <Container maxWidth="xl" className={classes.container}>
-            <ParticlesBg type="cobweb" bg={true} num={75} />
-
-            <Grid
-              container
-              spacing={3}
-              direction="row"
-              justify="center"
-              alignItems="flex-start"
-            >
-              <Grid item xs={12} md={2}>
-                <Fade>
-                  <Sidebar
-                    listItems={navSidebar}
-                    setLocation={setLocation}
-                    location={location}
-                  ></Sidebar>
-                </Fade>
-              </Grid>
-              <Grid item xs={12} md={7}>
-                <DynamicNavExample></DynamicNavExample>
-              </Grid>
-            </Grid>
-          </Container>
-        </main>
-      );
-
-    case "Props":
-      return (
-        <main className={classes.content}>
-          <div className={classes.appBarSpacer} />
-          <Container maxWidth="xl" className={classes.container}>
-            <ParticlesBg type="cobweb" bg={true} num={75} />
-
-            <Grid
-              container
-              spacing={3}
-              direction="row"
-              justify="center"
-              alignItems="flex-start"
-            >
-              <Grid item xs={12} md={2}>
-                <Fade>
-                  <Sidebar
-                    listItems={navSidebar}
-                    setLocation={setLocation}
-                    location={location}
-                  ></Sidebar>
-                </Fade>
-              </Grid>
-              <Grid item xs={12} md={7}>
-                <DynamicNavProps></DynamicNavProps>
-              </Grid>
-            </Grid>
-          </Container>
-        </main>
-      );
-
-    default:
-      return (
-        <main className={classes.content}>
-          <div className={classes.appBarSpacer} />
-          <Container maxWidth="xl" className={classes.container}>
-            <ParticlesBg type="cobweb" bg={true} num={75} />
-            <Fade>
               <Grid
                 container
                 spacing={3}
@@ -147,17 +59,129 @@ export default function DynamicNavContainer() {
                 alignItems="flex-start"
               >
                 <Grid item xs={12} md={2}>
-                  <Sidebar
-                    listItems={navSidebar}
-                    setLocation={setLocation}
-                    location={location}
-                  ></Sidebar>
+                  <Fade>
+                    <Sidebar
+                      listItems={navSidebar}
+                      setLocation={setLocation}
+                      location={location}
+                    ></Sidebar>
+                  </Fade>
                 </Grid>
-                <Grid item xs={12} md={7}></Grid>
+                <Grid item xs={12} md={7}>
+                  <DynamicNavIntroduction></DynamicNavIntroduction>
+                </Grid>
               </Grid>
-            </Fade>
-          </Container>
-        </main>
+            </Container>
+          </main>
+        </>
+      );
+
+    case "Example":
+      return (
+        <>
+          <Helmet>
+            <title>Mui Dynamic Nav Documentation</title>
+            <meta name="description" content="Mui Dynamic Nav Documentation" />
+          </Helmet>
+          <main className={classes.content}>
+            <div className={classes.appBarSpacer} />
+            <Container maxWidth="xl" className={classes.container}>
+              <ParticlesBg type="cobweb" bg={true} num={75} />
+
+              <Grid
+                container
+                spacing={3}
+                direction="row"
+                justify="center"
+                alignItems="flex-start"
+              >
+                <Grid item xs={12} md={2}>
+                  <Fade>
+                    <Sidebar
+                      listItems={navSidebar}
+                      setLocation={setLocation}
+                      location={location}
+                    ></Sidebar>
+                  </Fade>
+                </Grid>
+                <Grid item xs={12} md={7}>
+                  <DynamicNavExample></DynamicNavExample>
+                </Grid>
+              </Grid>
+            </Container>
+          </main>
+        </>
+      );
+
+    case "Props":
+      return (
+        <>
+          <Helmet>
+            <title>Mui Dynamic Nav Documentation</title>
+            <meta name="description" content="Mui Dynamic Nav Documentation" />
+          </Helmet>
+          <main className={classes.content}>
+            <div className={classes.appBarSpacer} />
+            <Container maxWidth="xl" className={classes.container}>
+              <ParticlesBg type="cobweb" bg={true} num={75} />
+
+              <Grid
+                container
+                spacing={3}
+                direction="row"
+                justify="center"
+                alignItems="flex-start"
+              >
+                <Grid item xs={12} md={2}>
+                  <Fade>
+                    <Sidebar
+                      listItems={navSidebar}
+                      setLocation={setLocation}
+                      location={location}
+                    ></Sidebar>
+                  </Fade>
+                </Grid>
+                <Grid item xs={12} md={7}>
+                  <DynamicNavProps></DynamicNavProps>
+                </Grid>
+              </Grid>
+            </Container>
+          </main>
+        </>
+      );
+
+    default:
+      return (
+        <>
+          <Helmet>
+            <title>Mui Dynamic Nav Documentation</title>
+            <meta name="description" content="Mui Dynamic Nav Documentation" />
+          </Helmet>
+          <main className={classes.content}>
+            <div className={classes.appBarSpacer} />
+            <Container maxWidth="xl" className={classes.container}>
+              <ParticlesBg type="cobweb" bg={true} num={75} />
+              <Fade>
+                <Grid
+                  container
+                  spacing={3}
+                  direction="row"
+                  justify="center"
+                  alignItems="flex-start"
+                >
+                  <Grid item xs={12} md={2}>
+                    <Sidebar
+                      listItems={navSidebar}
+                      setLocation={setLocation}
+                      location={location}
+                    ></Sidebar>
+                  </Grid>
+                  <Grid item xs={12} md={7}></Grid>
+                </Grid>
+              </Fade>
+            </Container>
+          </main>
+        </>
       );
   }
 }
