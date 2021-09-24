@@ -3,8 +3,9 @@ import ParticlesBg from "particles-bg";
 import resume from "../assets/resume.png";
 import resumePDF from "../assets/Resume.pdf";
 import { Fade } from "react-reveal";
-import { makeStyles, useTheme } from "@material-ui/core/styles";
+import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
+import { Helmet } from "react-helmet";
 
 const useStyles = makeStyles((theme) => ({
   appBarSpacer: theme.mixins.toolbar,
@@ -20,25 +21,30 @@ const useStyles = makeStyles((theme) => ({
 
 function Resume() {
   const classes = useStyles();
-  const theme = useTheme();
 
   return (
-    <main className={classes.content}>
-      <div className={classes.appBarSpacer} />
-      <Container maxWidth="xl" className={classes.container}>
-        <ParticlesBg type="cobweb" bg={true} num={75} />
-        <Fade>
-          <a href={resumePDF} download>
-            <img
-              className="resume"
-              src={resume}
-              alt="Devin Ramsammy's Resume"
-              style={{ maxHeight: "80vh" }}
-            ></img>
-          </a>
-        </Fade>
-      </Container>
-    </main>
+    <>
+      <Helmet>
+        <title>Resume</title>
+        <meta name="description" content="Resume - Devin Ramsammy" />
+      </Helmet>
+      <main className={classes.content}>
+        <div className={classes.appBarSpacer} />
+        <Container maxWidth="xl" className={classes.container}>
+          <ParticlesBg type="cobweb" bg={true} num={75} />
+          <Fade>
+            <a href={resumePDF} download="DevinRamsammyResume.pdf">
+              <img
+                className="resume"
+                src={resume}
+                alt="Devin Ramsammy's Resume"
+                style={{ maxHeight: "80vh" }}
+              ></img>
+            </a>
+          </Fade>
+        </Container>
+      </main>
+    </>
   );
 }
 

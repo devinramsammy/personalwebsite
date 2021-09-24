@@ -9,6 +9,7 @@ import { createMuiTheme, ThemeProvider } from "@material-ui/core/styles";
 import DynamicNavbar from "mui-dynamic-nav";
 
 import "./App.css";
+import Localboard from "./docs/localboard/container";
 
 const navTheme = createMuiTheme({
   shadows: ["none"],
@@ -76,6 +77,11 @@ const navbarData = [
         href: "/police-shootings-analytics",
         icon: "bar_chart",
       },
+      {
+        title: "Localboard",
+        href: "/localboard",
+        icon: "dashboard_customize",
+      },
     ],
   },
 ];
@@ -109,6 +115,7 @@ class App extends Component {
                   path="/police-shootings-analytics"
                   component={DatabaseAnalytics}
                 />
+                <Route exact path="/localboard" component={Localboard} />
               </ThemeProvider>
             </Switch>
           </Router>

@@ -5,6 +5,7 @@ import ParticlesBg from "particles-bg";
 import Typist from "react-typist";
 import { makeStyles, useTheme } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
+import { Helmet } from "react-helmet";
 
 const useStyles = makeStyles((theme) => ({
   appBarSpacer: theme.mixins.toolbar,
@@ -43,6 +44,10 @@ function Homepage() {
 
   return (
     <>
+      <Helmet>
+        <title>Homepage</title>
+        <meta name="description" content="Devin Ramsammy's portfolio website" />
+      </Helmet>
       <main className={classes.content}>
         <div className={classes.appBarSpacer} />
         <Container maxWidth="xl" className={classes.container}>
