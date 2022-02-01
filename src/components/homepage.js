@@ -22,8 +22,6 @@ const useStyles = makeStyles((theme) => ({
 
 function Homepage() {
   const classes = useStyles();
-  const theme = useTheme();
-
   function heading(first, second) {
     return (
       <h1>

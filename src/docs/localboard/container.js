@@ -21,7 +21,6 @@ const useStyles = makeStyles((theme) => ({
 
 export default function Localboard() {
   const classes = useStyles();
-  const theme = useTheme();
 
   return (
     <>

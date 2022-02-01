@@ -21,7 +21,6 @@ const useStyles = makeStyles((theme) => ({
 
 export default function DatabaseAnalytics() {
   const classes = useStyles();
-  const theme = useTheme();
 
   return (
     <>

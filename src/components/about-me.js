@@ -31,7 +31,6 @@ const useStyles = makeStyles((theme) => ({
 
 function AboutMe() {
   const classes = useStyles();
-  const theme = useTheme();
   return (
     <>
       <Helmet>
