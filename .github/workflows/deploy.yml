@@ -1,13 +1,12 @@
 name: Deploy and Invalidate
 
-  
 on:
   push:
     branches:
       - master
 
 jobs:
-  deploy:
+  check:
     name: Begin Deployment
     runs-on: ubuntu-latest
     steps:
