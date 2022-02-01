@@ -13,8 +13,8 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
         run: |
-        npm install
-        npm build 
+          npm install
+          npm build 
     - name: AWS Config
       uses: aws-actions/configure-aws-credentials@v1
     with:
