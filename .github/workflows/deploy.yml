@@ -7,7 +7,7 @@ name: Deploy and Invalidate
 
 jobs:
   deploy:
-    name: Begin Deployment
+    name: Deploy and Invalidate
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -22,3 +22,7 @@ jobs:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: ${{ secrets.AWS_REGION }}
+      - name: Deploy to S3
+        run: aws s3 sync build s3://${{ secrets.AWS_BUCKET_NAME }}
+      - name: Invalidate Cloudfront Distribution
+        run: aws cloudfront create-invalidation --distribution-id ${{ secrets.AWS_CLOUDFRONT_DISTRIBUTION_ID }} --paths "/*"
