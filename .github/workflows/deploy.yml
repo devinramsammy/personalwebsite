@@ -1,8 +1,5 @@
 name: Deploy and Invalidate
 
-concurrency: 
-  group: production
-  cancel-in-progress: true
   
 on:
   push:
@@ -11,9 +8,8 @@ on:
 
 jobs:
   deploy:
-    name: Deploy
+    name: Begin Deployment
     runs-on: ubuntu-latest
-    # These permissions are needed to interact with GitHub's OIDC Token endpoint.
     steps:
     - name: Checkout
       uses: actions/checkout@v2
