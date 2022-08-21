@@ -1,16 +1,19 @@
-import React, { Component } from 'react';
-import { ThemeProvider, createMuiTheme } from '@material-ui/core/styles';
+import React from 'react';
+import {
+	ThemeProvider,
+	createTheme,
+	makeStyles,
+} from '@material-ui/core/styles';
 import DynamicNavbar from 'mui-dynamic-nav';
 import { Route, BrowserRouter as Router, Switch } from 'react-router-dom';
-import './App.css';
-import AboutMe from './components/about-me';
-import Homepage from './components/homepage';
-import Resume from './components/resume';
-import Localboard from './docs/localboard/container';
-import MuiDynamicNav from './docs/mui-dynamic-nav/container';
-import DatabaseAnalytics from './docs/police-shooting-database-analytics/container';
+import {
+	DatabaseAnalytics,
+	DynamicNavContainer,
+	Localboard,
+} from './components/docs';
+import { AboutMe, Homepage, Resume } from './components/pages';
 
-const navTheme = createMuiTheme({
+const navTheme = createTheme({
 	shadows: ['none'],
 	palette: {
 		primary: {
@@ -36,7 +39,7 @@ const navTheme = createMuiTheme({
 	},
 });
 
-const docsTheme = createMuiTheme({
+const docsTheme = createTheme({
 	overrides: {
 		MuiListItem: {
 			root: {
@@ -85,43 +88,44 @@ const navbarData = [
 	},
 ];
 
-class App extends Component {
-	render() {
-		return (
-			<div className='App'>
-				<ThemeProvider>
-					<Router>
-						<ThemeProvider theme={navTheme}>
-							<DynamicNavbar
-								title={''}
-								data={navbarData}
-								type='hoverable'
-							></DynamicNavbar>
+const useStyles = makeStyles(() => ({
+	app: { textAlign: 'center', left: 0, right: 0, display: 'flex' },
+}));
+
+export default function App() {
+	const classes = useStyles();
+	return (
+		<div className={classes.app}>
+			<ThemeProvider>
+				<Router>
+					<ThemeProvider theme={navTheme}>
+						<DynamicNavbar
+							title={''}
+							data={navbarData}
+							type='hoverable'
+						></DynamicNavbar>
+					</ThemeProvider>
+
+					<Switch>
+						<Route exact path='/' component={Homepage} />
+						<Route exact path='/about-me' component={AboutMe} />
+						<Route exact path='/resume' component={Resume} />
+						<ThemeProvider theme={docsTheme}>
+							<Route
+								exact
+								path='/mui-dynamic-nav'
+								component={DynamicNavContainer}
+							/>
+							<Route
+								exact
+								path='/police-shootings-analytics'
+								component={DatabaseAnalytics}
+							/>
+							<Route exact path='/localboard' component={Localboard} />
 						</ThemeProvider>
-
-						<Switch>
-							<Route exact path='/' component={Homepage} />
-							<Route exact path='/about-me' component={AboutMe} />
-							<Route exact path='/resume' component={Resume} />
-							<ThemeProvider theme={docsTheme}>
-								<Route
-									exact
-									path='/mui-dynamic-nav'
-									component={MuiDynamicNav}
-								/>
-								<Route
-									exact
-									path='/police-shootings-analytics'
-									component={DatabaseAnalytics}
-								/>
-								<Route exact path='/localboard' component={Localboard} />
-							</ThemeProvider>
-						</Switch>
-					</Router>
-				</ThemeProvider>
-			</div>
-		);
-	}
+					</Switch>
+				</Router>
+			</ThemeProvider>
+		</div>
+	);
 }
-
-export default App;

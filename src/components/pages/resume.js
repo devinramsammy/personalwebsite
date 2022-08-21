@@ -4,8 +4,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import ParticlesBg from 'particles-bg';
 import { Helmet } from 'react-helmet';
 import { Fade } from 'react-reveal';
-import resumePDF from '../assets/Resume.pdf';
-import resume from '../assets/resume.png';
+import { ResumeImage, ResumePDF } from '../../assets';
 
 const useStyles = makeStyles((theme) => ({
 	appBarSpacer: theme.mixins.toolbar,
@@ -17,9 +16,10 @@ const useStyles = makeStyles((theme) => ({
 		paddingTop: theme.spacing(4),
 		paddingBottom: theme.spacing(4),
 	},
+	resumeImg: { maxHeight: '80vh', maxWidth: '90vw' },
 }));
 
-function Resume() {
+export default function Resume() {
 	const classes = useStyles();
 
 	return (
@@ -33,12 +33,11 @@ function Resume() {
 				<Container maxWidth='xl' className={classes.container}>
 					<ParticlesBg type='cobweb' bg={true} num={75} />
 					<Fade>
-						<a href={resumePDF} download='DevinRamsammyResume.pdf'>
+						<a href={ResumePDF} download='DevinRamsammyResume.pdf'>
 							<img
-								className='resume'
-								src={resume}
+								src={ResumeImage}
 								alt="Devin Ramsammy's Resume"
-								style={{ maxHeight: '80vh' }}
+								className={classes.resumeImg}
 							></img>
 						</a>
 					</Fade>
@@ -47,5 +46,3 @@ function Resume() {
 		</>
 	);
 }
-
-export default Resume;

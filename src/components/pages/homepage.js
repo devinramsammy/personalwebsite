@@ -18,28 +18,17 @@ const useStyles = makeStyles((theme) => ({
 		paddingTop: theme.spacing(4),
 		paddingBottom: theme.spacing(4),
 	},
+	headerText: {
+		fontSize: 'calc((75vw - 4.5rem) / 3)',
+		fontFamily: 'Rajdhani',
+		fontWeight: 800,
+	},
+	headerStyle: { display: 'inline-block', fontFamily: 'Rajdhani' },
+	preWhiteSpace: { whiteSpace: 'pre' },
 }));
 
-function Homepage() {
+export default function Homepage() {
 	const classes = useStyles();
-	function heading(first, second) {
-		return (
-			<h1>
-				<Zoom left cascade duration={1500} delay={300} ssrReveal>
-					<div style={{ display: 'inline-block', fontFamily: 'Rajdhani' }}>
-						{first}
-					</div>
-				</Zoom>
-				<span style={{ whiteSpace: 'pre' }}> </span>
-				<Zoom right cascade duration={1500} delay={300} ssrReveal>
-					<div style={{ display: 'inline-block', fontFamily: 'Rajdhani' }}>
-						{second}
-					</div>
-				</Zoom>
-			</h1>
-		);
-	}
-
 	return (
 		<>
 			<Helmet>
@@ -53,16 +42,24 @@ function Homepage() {
 					<Typist
 						startDelay={500}
 						avgTypingDelay={150}
-						className='header'
+						className={classes.headerText}
 						cursor={{ show: false }}
 					>
 						HELLO!
 					</Typist>
-					<div>{heading('My name is Devin', 'and I code and stuff')}</div>
+					<div>
+						<h1>
+							<Zoom left cascade duration={1500} delay={300} ssrReveal>
+								<div className={classes.headerStyle}>My name is Devin</div>
+							</Zoom>
+							<span className={classes.preWhiteSpace}> </span>
+							<Zoom right cascade duration={1500} delay={300} ssrReveal>
+								<div className={classes.headerStyle}>and I code and stuff</div>
+							</Zoom>
+						</h1>
+					</div>
 				</Container>
 			</main>
 		</>
 	);
 }
-
-export default Homepage;
