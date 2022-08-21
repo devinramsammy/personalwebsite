@@ -1,6 +1,5 @@
 import React from 'react';
 import { Paper } from '@material-ui/core';
-
 import Fade from 'react-reveal/Fade';
 import SyntaxHighlighter from 'react-syntax-highlighter';
 import { solarizedLight } from 'react-syntax-highlighter/dist/esm/styles/hljs';

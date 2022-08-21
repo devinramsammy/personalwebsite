@@ -1,11 +1,11 @@
 import React from 'react';
-import Navbar1 from '../../assets/Navbar1.PNG';
-import Navbar2 from '../../assets/Navbar2.PNG';
-import Navbar3 from '../../assets/Navbar3.PNG';
 import { Paper } from '@material-ui/core';
 import Fade from 'react-reveal/Fade';
 import SyntaxHighlighter from 'react-syntax-highlighter';
 import { solarizedLight } from 'react-syntax-highlighter/dist/esm/styles/hljs';
+import Navbar1 from '../../assets/Navbar1.PNG';
+import Navbar2 from '../../assets/Navbar2.PNG';
+import Navbar3 from '../../assets/Navbar3.PNG';
 
 const NAVBAR1 = `const additionalButtonsConfig = [{
   iconButton: true,

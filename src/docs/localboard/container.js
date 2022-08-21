@@ -1,10 +1,10 @@
 import React from 'react';
 import { Grid, Paper } from '@material-ui/core';
-import Fade from 'react-reveal/Fade';
-import ParticlesBg from 'particles-bg';
-import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
+import { makeStyles } from '@material-ui/core/styles';
+import ParticlesBg from 'particles-bg';
 import { Helmet } from 'react-helmet';
+import Fade from 'react-reveal/Fade';
 
 const useStyles = makeStyles((theme) => ({
 	appBarSpacer: theme.mixins.toolbar,

@@ -1,11 +1,11 @@
 import React from 'react';
-import { Zoom } from 'react-reveal';
-import 'react-typist/dist/Typist.css';
-import ParticlesBg from 'particles-bg';
-import Typist from 'react-typist';
-import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
+import { makeStyles } from '@material-ui/core/styles';
+import ParticlesBg from 'particles-bg';
 import { Helmet } from 'react-helmet';
+import { Zoom } from 'react-reveal';
+import Typist from 'react-typist';
+import 'react-typist/dist/Typist.css';
 
 const useStyles = makeStyles((theme) => ({
 	appBarSpacer: theme.mixins.toolbar,

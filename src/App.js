@@ -1,15 +1,14 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import Homepage from './components/homepage';
+import { ThemeProvider, createMuiTheme } from '@material-ui/core/styles';
+import DynamicNavbar from 'mui-dynamic-nav';
+import { Route, BrowserRouter as Router, Switch } from 'react-router-dom';
+import './App.css';
 import AboutMe from './components/about-me';
+import Homepage from './components/homepage';
 import Resume from './components/resume';
+import Localboard from './docs/localboard/container';
 import MuiDynamicNav from './docs/mui-dynamic-nav/container';
 import DatabaseAnalytics from './docs/police-shooting-database-analytics/container';
-import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
-import DynamicNavbar from 'mui-dynamic-nav';
-
-import './App.css';
-import Localboard from './docs/localboard/container';
 
 const navTheme = createMuiTheme({
 	shadows: ['none'],

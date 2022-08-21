@@ -1,6 +1,6 @@
-import PropTypes from 'prop-types';
 import React from 'react';
 import { List, ListItem, ListItemText } from '@material-ui/core';
+import PropTypes from 'prop-types';
 
 export default function Sidebar({ listItems, setLocation, location }) {
 	const checkLocation = (title) => {

@@ -1,14 +1,14 @@
 import React, { useState } from 'react';
 import { Grid } from '@material-ui/core';
-import Sidebar from '../utils/sidebar';
-import DynamicNavIntroduction from './introduction';
-import DynamicNavExample from './example';
-import DynamicNavProps from './props';
-import Fade from 'react-reveal/Fade';
-import ParticlesBg from 'particles-bg';
-import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
+import { makeStyles } from '@material-ui/core/styles';
+import ParticlesBg from 'particles-bg';
 import { Helmet } from 'react-helmet';
+import Fade from 'react-reveal/Fade';
+import Sidebar from '../utils/sidebar';
+import DynamicNavExample from './example';
+import DynamicNavIntroduction from './introduction';
+import DynamicNavProps from './props';
 
 const useStyles = makeStyles((theme) => ({
 	appBarSpacer: theme.mixins.toolbar,

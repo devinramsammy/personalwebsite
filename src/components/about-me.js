@@ -1,20 +1,20 @@
 import React from 'react';
-import { Fade } from 'react-reveal';
 import {
-	Grid,
+	Avatar,
 	Card,
 	CardContent,
-	Avatar,
 	CardHeader,
+	Grid,
 	Icon,
 	IconButton,
 } from '@material-ui/core';
-import 'react-typist/dist/Typist.css';
-import ParticlesBg from 'particles-bg';
-import ProfilePic from '../assets/placeholder.jpg';
-import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
+import { makeStyles } from '@material-ui/core/styles';
+import ParticlesBg from 'particles-bg';
 import { Helmet } from 'react-helmet';
+import { Fade } from 'react-reveal';
+import 'react-typist/dist/Typist.css';
+import ProfilePic from '../assets/placeholder.jpg';
 
 const useStyles = makeStyles((theme) => ({
 	appBarSpacer: theme.mixins.toolbar,
